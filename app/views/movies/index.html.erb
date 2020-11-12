@@ -1,0 +1,43 @@
+<div class="m-3">
+  <div class="container">
+  <div class="row">
+    <div class="col-10">
+      <h1>Movies</h1>
+
+      <% if false %>
+        <%#= form_tag movies_path, method: :get do %>
+          <%#= text_field_tag :query,
+            params[:query],
+            class: "form-control",
+            placeholder: "Find a movie"
+          %>
+          <%#= submit_tag "Search", class: "btn btn-primary" %>
+        <%# end %>
+      <% end %>
+
+      <div class="m-3 w-50">
+        <%= form_with url: movies_path, method: :get, local:true do %>
+          <%= text_field_tag :query,
+            params[:query],
+            class: "form-control mb-1",
+            placeholder: "Find a movie"
+          %>
+          <%= submit_tag "Search", class: "btn btn-primary" %>
+        <% end %>
+      </div>
+
+      <ul>
+        <% @movies.each do |movie| %>
+          <li>
+            <h3><%= movie.title %> from <%= movie.year %></h3>
+            <p><%= movie.syllabus %></p>
+          </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+
+
+
